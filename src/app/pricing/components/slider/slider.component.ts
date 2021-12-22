@@ -65,7 +65,7 @@ export class SliderComponent
       this.moveTo(clientX);
     });
     this.append = fromEvent(window, 'resize').subscribe(() => {
-      this.cd.markForCheck();
+      this.cd.detectChanges();
     });
   }
 
