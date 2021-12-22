@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { UnSubscribe } from '@lbk/shared/unsubscribe.component';
-import { fromEvent } from 'rxjs';
+import { debounceTime, fromEvent } from 'rxjs';
 
 const SLIDER_CONTROL_ACCESSORS = {
   provide: NG_VALUE_ACCESSOR,
@@ -61,12 +61,16 @@ export class SliderComponent
 
     this.append = fromEvent(window, 'mousemove').subscribe((event) => {
       if (!this.drag) return;
+
       const { clientX } = event as MouseEvent;
       this.moveTo(clientX);
     });
-    this.append = fromEvent(window, 'resize').subscribe(() => {
-      this.cd.detectChanges();
-    });
+    this.append = fromEvent(window, 'resize')
+      .pipe(debounceTime(300))
+      .subscribe(() => {
+        this.flyTo(this.step);
+        this.cd.markForCheck();
+      });
   }
 
   onBallClick(event: MouseEvent) {
