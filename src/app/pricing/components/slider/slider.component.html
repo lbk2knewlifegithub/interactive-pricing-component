@@ -1,0 +1,14 @@
+<div #slider (click)="onSliderClick($event)" class="relative slider bg-primary-200 rounded-full h-3 w-full ">
+  <!-- full  -->
+  <div [style.width]="full" class="absolute w-1/2 h-full bg-primary-700 rounded-full animate-pulse"></div>
+  <!-- end full  -->
+
+  <!-- ball -->
+  <button #ball [style.left]="left + 'px'" (mousedown)="onBallClick($event)"
+    class="{{
+          drag ? '' : 'duration-300'
+        }}  bg-primary-900 w-10 h-10 rounded-full grid place-content-center center left-0 fuck hover:opacity-70">
+    <img src="/assets/images/icon-slider.svg" alt="Slider" />
+  </button>
+  <!-- end ball -->
+</div>

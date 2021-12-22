@@ -1,3 +1,11 @@
+import {
+  animate,
+  query,
+  stagger,
+  style,
+  transition,
+  trigger
+} from '@angular/animations';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
@@ -30,7 +38,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styles: [
     `
       .features {
-        @apply text-muted flex flex-col items-center gap-2;
+        @apply text-muted flex flex-col items-center gap-2 md:items-start md:gap-3;
         li {
           @apply flex gap-4 items-center;
         }

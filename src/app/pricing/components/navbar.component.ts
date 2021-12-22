@@ -4,12 +4,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'lbk-navbar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <nav class="relative container mt-10">
+    <nav class="relative">
       <div class="text-center space-y-2">
-        <h1 class="font-black text-2xl">Simple, traffic-based pricing</h1>
+        <h1 class="font-black text-2xl sm:text-3xl md:text-4xl">Simple, traffic-based pricing</h1>
 
-        <p class="text-muted">
-          Sign-up for our 30-day trial<br />. No credit card required.
+        <p class="text-muted sm:text-lg">
+          Sign-up for our 30-day trial<br class="md:hidden" />. No credit card required.
         </p>
       </div>
 

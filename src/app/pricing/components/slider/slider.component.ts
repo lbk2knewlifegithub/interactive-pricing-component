@@ -22,33 +22,8 @@ const SLIDER_CONTROL_ACCESSORS = {
   selector: 'lbk-slider',
   providers: [SLIDER_CONTROL_ACCESSORS],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `
-    <div
-      #slider
-      (click)="onSliderClick($event)"
-      class="relative slider bg-empty-slider rounded-full h-3 w-full"
-    >
-      <!-- full  -->
-      <div
-        [style.width]="full"
-        class="absolute w-1/2 h-full bg-full-slider rounded-full animate-pulse"
-      ></div>
-      <!-- end full  -->
-
-      <!-- ball -->
-      <div
-        #ball
-        [style.left]="left + 'px'"
-        (mousedown)="onBallClick($event)"
-        class="{{
-          drag ? '' : 'duration-300'
-        }}  bg-slider w-10 h-10 rounded-full grid place-content-center center left-0"
-      >
-        <img src="/assets/images/icon-slider.svg" alt="Slider" />
-      </div>
-      <!-- end ball -->
-    </div>
-  `,
+  templateUrl: './slider.component.html',
+  styleUrls: ['./slider.component.scss'],
 })
 export class SliderComponent
   extends UnSubscribe
@@ -89,6 +64,9 @@ export class SliderComponent
       const { clientX } = event as MouseEvent;
       this.moveTo(clientX);
     });
+    this.append = fromEvent(window, 'resize').subscribe(() => {
+      this.cd.markForCheck();
+    });
   }
 
   onBallClick(event: MouseEvent) {
@@ -111,11 +89,10 @@ export class SliderComponent
       (this.left / this.sliderWidth) * this.steps.length
     );
 
-    if (newStep !== this.step && newStep != this.steps.length) {
+    if (newStep != this.steps.length) {
       this.step === newStep;
       this.onValue(this.steps[newStep]);
     }
-
     this.cd.markForCheck();
   }
 

@@ -19,10 +19,6 @@ module.exports = {
       center: true,
       padding: {
         DEFAULT: "1rem",
-        sm: "2rem",
-        lg: "4rem",
-        xl: "5rem",
-        "2xl": "6rem",
       },
     },
     extend: {
@@ -42,9 +38,10 @@ module.exports = {
         fill: withOpacity("--bg-fill"),
         cta: withOpacity("--bg-cta"),
         toggle: withOpacity("--bg-toggle"),
-        slider: withOpacity("--bg-slider"),
-        "empty-slider": withOpacity("--bg-empty-slider"),
-        "full-slider": withOpacity("--bg-full-slider"),
+        "primary-900": withOpacity("--bg-primary-900"),
+        "primary-700": withOpacity("--bg-primary-700"),
+        "primary-200": withOpacity("--bg-primary-200"),
+        discount: withOpacity("--bg-discount"),
       },
       transitionTimingFunction: {
         "in-expo": "cubic-bezier(.05,1.05,1,-0.08)",

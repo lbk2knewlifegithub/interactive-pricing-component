@@ -20,7 +20,7 @@ const SWITCH_CONTROL_ACCESSORS = {
     <button
       (click)="onSwitch()"
       type="button"
-      class="relative w-14 h-7 bg-toggle rounded-full"
+      class="relative w-14 h-7 bg-toggle rounded-full duration-200 hover:bg-primary-900"
     >
       <!-- ball -->
       <div
