@@ -1,1 +1,66 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  :root {
+    ////////////////////
+    // text colors /////
+    ////////////////////
+    --text-fill: 227, 35%, 25%;
+    --text-muted: 227, 35%, 25%;
+    --text-cta: 226, 100%, 87%;
+
+    /////////////////////////////
+    // background colors /////////
+    /////////////////////////////
+    --bg-fill: 230, 100%, 99%;
+    --bg-toggle: 223, 50%, 87%;
+    --bg-discount: 14, 92%, 95%;
+
+    --bg-empty-slider: 224, 65%, 95%;
+    --bg-slider: 174, 86%, 45%;
+    --bg-full-slider: 174, 77%, 80%;
+    --bg-cta: 227, 35%, 25%;
+  }
+
+  //make default form look nice
+  [type="text"],
+  [type="email"],
+  [type="url"],
+  [type="password"],
+  [type="number"],
+  [type="date"],
+  [type="datetime-local"],
+  [type="month"],
+  [type="search"],
+  [type="tel"],
+  [type="time"],
+  [type="week"],
+  [multiple],
+  textarea,
+  select {
+    @apply w-full border-gray-300 rounded-lg shadow-sm focus:border-indigo-500 focus:ring-indigo-500;
+  }
+
+  [type="checkbox"],
+  [type="radio"] {
+    @apply border-gray-300 rounded text-indigo-600 focus:ring-indigo-500;
+  }
+}
+
+@layer components {
+  .center {
+    @apply absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2;
+  }
+  .badge-warning {
+    @apply bg-orange-100 text-orange-600 px-3 py-1 rounded-full text-xs font-semibold;
+  }
+  .btn {
+    @apply inline-block tracking-wider font-bold hover:opacity-50 rounded-full px-10 py-4;
+  }
+
+  .btn-dark {
+    @apply bg-cta text-cta;
+  }
+}
