@@ -11,6 +11,7 @@ const SWITCH_CONTROL_ACCESSORS = {
   useExisting: forwardRef(() => SwitchComponent),
   multi: true,
 };
+
 @Component({
   selector: 'lbk-switch',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -19,7 +20,7 @@ const SWITCH_CONTROL_ACCESSORS = {
     <button
       (click)="onSwitch()"
       type="button"
-      class="relative w-14 h-7 bg-gray-300 rounded-full"
+      class="relative w-14 h-7 bg-toggle rounded-full"
     >
       <!-- ball -->
       <div

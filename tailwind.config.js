@@ -41,6 +41,14 @@ module.exports = {
       backgroundColor: {
         fill: withOpacity("--bg-fill"),
         cta: withOpacity("--bg-cta"),
+        toggle: withOpacity("--bg-toggle"),
+        slider: withOpacity("--bg-slider"),
+        "empty-slider": withOpacity("--bg-empty-slider"),
+        "full-slider": withOpacity("--bg-full-slider"),
+      },
+      transitionTimingFunction: {
+        "in-expo": "cubic-bezier(.05,1.05,1,-0.08)",
+        "out-expo": "cubic-bezier(0.19, 1, 0.22, 1)",
       },
     },
   },

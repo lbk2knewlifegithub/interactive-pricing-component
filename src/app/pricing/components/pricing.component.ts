@@ -12,13 +12,17 @@ import { FormBuilder, FormGroup } from '@angular/forms';
     >
       <div class="px-6 grid place-items-center gap-8">
         <p class="text-muted font-semibold text-xl tracking-wide">
-          100K PAGEVIEWS
+          {{ pageViews }} PAGEVIEWS
         </p>
 
-        <lbk-slider></lbk-slider>
+        <lbk-slider
+          formControlName="price"
+          [steps]="sliderSteps"
+          class="block w-full"
+        ></lbk-slider>
 
         <div class="flex items-center gap-2">
-          <strong class="text-4xl font-black"> $16.00 </strong>
+          <strong class="text-4xl font-black"> {{ price }} </strong>
           <span class="font-medium">/ month</span>
         </div>
 
@@ -47,13 +51,35 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class PricingComponent implements OnInit {
   formGroup!: FormGroup;
+
+  prices: { [key: number]: string } = {
+    8: '10K',
+    12: '50K',
+    16: '100K',
+    24: '500k',
+    36: '1M',
+  };
+
   constructor(private readonly _fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.formGroup = this._fb.group({
       yearlyBilling: true,
+      price: 16,
     });
   }
 
+  get pageViews(): string {
+    return this.prices[this.price];
+  }
+
+  get price(): number {
+    return this.formGroup.value.price;
+  }
+
   onSubmit(): void {}
+
+  get sliderSteps(): number[] {
+    return Object.keys(this.prices).map((key) => +key);
+  }
 }
