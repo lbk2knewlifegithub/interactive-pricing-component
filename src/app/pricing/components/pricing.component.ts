@@ -68,7 +68,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
         <lbk-features></lbk-features>
         <!-- end features -->
 
-        <div class="animate-pulse">
+        <div class="">
           <a routerLink="/" class="btn btn-dark">Start my trial</a>
         </div>
       </div>
