@@ -1,12 +1,16 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'lbk-pricing',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div class="bg-white py-6 shadow-lg rounded-xl">
-
-      <div class="px-6 grid place-items-center gap-4">
+    <form
+      [formGroup]="formGroup"
+      class="bg-white py-6 shadow-lg rounded-xl"
+      (ngSubmit)="onSubmit()"
+    >
+      <div class="px-6 grid place-items-center gap-8">
         <p class="text-muted font-semibold text-xl tracking-wide">
           100K PAGEVIEWS
         </p>
@@ -14,15 +18,15 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
         <lbk-slider></lbk-slider>
 
         <div class="flex items-center gap-2">
-          <strong class="text-4xl"> $16.00 </strong>
+          <strong class="text-4xl font-black"> $16.00 </strong>
           <span class="font-medium">/ month</span>
         </div>
 
         <!-- billing -->
-        <div class="flex gap-2 text-sm">
+        <div class="flex text-xs gap-2 items-center w-full tracking-wide">
           <p>Monthly Billing</p>
-          <lbk-switch></lbk-switch>
-          <p>Yearly Billing <span class="badge-warning ml-2">-25%</span></p>
+          <lbk-switch formControlName="yearlyBilling"></lbk-switch>
+          <p>Yearly Billing <span class="badge-warning ml-1">-25%</span></p>
         </div>
         <!-- end billing -->
       </div>
@@ -38,7 +42,18 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
           <a routerLink="/" class="btn btn-dark">Start my trial</a>
         </div>
       </div>
-    </div>
+    </form>
   `,
 })
-export class PricingComponent {}
+export class PricingComponent implements OnInit {
+  formGroup!: FormGroup;
+  constructor(private readonly _fb: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.formGroup = this._fb.group({
+      yearlyBilling: true,
+    });
+  }
+
+  onSubmit(): void {}
+}

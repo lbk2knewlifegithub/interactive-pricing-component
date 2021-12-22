@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import {
   FeaturesComponent,
   NavbarComponent,
@@ -20,7 +21,7 @@ const COMPONENTS = [
 const CONTAINERS = [PricingPageComponent];
 
 @NgModule({
-  imports: [CommonModule, PricingRoutingModule],
+  imports: [CommonModule, PricingRoutingModule, ReactiveFormsModule],
   declarations: [COMPONENTS, CONTAINERS],
 })
 export class PricingModule {}
