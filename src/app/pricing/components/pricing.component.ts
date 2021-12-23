@@ -11,7 +11,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
       (ngSubmit)="onSubmit()"
     >
       <div
-        class="px-6 py-10 grid place-items-center gap-8 sm:gap-10 sm:p-10 md:place-content-stretch md:gap-16 md:p-16 md:pb-14"
+        class="px-6 py-10 grid place-items-center gap-8 sm:gap-10 sm:p-10 md:place-content-stretch"
       >
         <div class="grid md:grid-cols-2 md:items-center md:w-full">
           <!-- page views -->
@@ -62,7 +62,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
       </div>
 
       <div
-        class="grid p-6 pb-10 gap-10 place-items-center border-t border-gray-200 sm:py-10 md:grid-cols-2 md:place-items-start md:p-16 md:pt-14"
+        class="grid p-6 pb-10 px-10 gap-10 place-items-center border-t border-gray-200 sm:py-10 md:grid-cols-2 md:place-items-start"
       >
         <!-- features -->
         <lbk-features></lbk-features>

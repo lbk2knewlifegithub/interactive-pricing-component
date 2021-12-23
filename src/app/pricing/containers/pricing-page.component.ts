@@ -15,11 +15,12 @@ import { slideInTop } from '@lbk/shared/animations/slide.anim';
       />
       <!-- end bg pattern -->
 
-      <div class="container mt-16 md:mt-20">
+
+      <div class="container mt-16 md:mt-32">
         <lbk-navbar class="block" @slideIn></lbk-navbar>
       </div>
 
-      <main class="container max-w-3xl mt-16 md:mt-20">
+      <main class="container max-w-3xl mt-16 md:mt-24">
         <lbk-pricing class="block" @scaleIn></lbk-pricing>
       </main>
     </div>
