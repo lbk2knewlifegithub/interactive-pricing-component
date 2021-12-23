@@ -20,7 +20,7 @@ import { slideInTop } from '@lbk/shared/animations/slide.anim';
         <lbk-navbar class="block" @slideIn></lbk-navbar>
       </div>
 
-      <main class="container max-w-3xl mt-16 md:mt-24">
+      <main class="container max-w-2xl mt-16 md:mt-24">
         <lbk-pricing class="block" @scaleIn></lbk-pricing>
       </main>
     </div>

@@ -33,7 +33,7 @@
     @apply bg-discount text-orange-600 px-3 py-1 rounded-full text-xs font-semibold;
   }
   .btn {
-    @apply inline-block tracking-wider font-bold hover:opacity-70 rounded-full px-14 py-4 md:px-20;
+    @apply inline-block tracking-wider font-bold hover:opacity-70 rounded-full px-14 py-4;
   }
 
   .btn-dark {
